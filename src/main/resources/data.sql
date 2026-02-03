@@ -1,0 +1,6 @@
+CREATE TABLE product (
+  id varchar(255) not null primary key,
+  name varchar(50) not null,
+  description varchar(400),
+  priceInCents numeric(18, 0)
+);

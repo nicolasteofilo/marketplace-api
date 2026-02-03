@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MarketplaceApiApplication {
 	@GetMapping("/")
 	public String helloWord() {
-		return "Welcome to Marketplace ó";
+		return "Welcome to Marketplace API";
 	}
 
 	public static void main(String[] args) {
