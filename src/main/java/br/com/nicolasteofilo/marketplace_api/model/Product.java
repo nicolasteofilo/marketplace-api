@@ -1,43 +1,28 @@
 package br.com.nicolasteofilo.marketplace_api.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity; // JPA ≥ Java Persistence API
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
 // POJO -> Plain Old Java Object
+@Entity
+@Table(name = "product")
 public class Product {
-    private String id;
-    private String name;
-    private String description;
-    private double priceInCents;
+    @Id
+    @Column(name = "id")
+    @Getter @Setter private String id;
 
-    public String getId() {
-        return id;
-    }
+    @Column(name = "name")
+    @Getter @Setter private String name;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    @Column(name = "description")
+    @Getter @Setter private String description;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public double getPriceInCents() {
-        return priceInCents;
-    }
-
-    public void setPriceInCents(double priceInCents) {
-        this.priceInCents = priceInCents;
-    }
+    @Column(name = "priceInCents")
+    @Getter @Setter private int priceInCents;
 
     @Override
     public String toString() {
