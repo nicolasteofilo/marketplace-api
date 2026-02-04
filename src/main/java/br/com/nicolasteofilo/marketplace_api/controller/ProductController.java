@@ -2,11 +2,10 @@ package br.com.nicolasteofilo.marketplace_api.controller;
 
 import br.com.nicolasteofilo.marketplace_api.model.Product;
 import br.com.nicolasteofilo.marketplace_api.repository.ProductRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -24,5 +23,16 @@ public class ProductController {
         product.setId(id);
         productRepository.save(product);
         return product;
+   }
+
+   @GetMapping
+   public List<Product> getAll() {
+        return productRepository.findAll();
+   }
+
+   @GetMapping("{id}")
+   public Product getById(@PathVariable String id) {
+       Optional<Product> product = productRepository.findById(id);
+       return product.orElse(null); // if Optional has value, return this value, else return the argument passed on method
    }
 }
